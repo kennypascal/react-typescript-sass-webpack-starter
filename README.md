@@ -20,8 +20,8 @@ A bare minimum react-typescript-sass-webpack boilerplate for quickly creating in
 Before you start developing you will need:
 
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [Node.js](https://nodejs.org/)
-- [NPM](https://www.npmjs.com/) (version 8.12.0 is recommended for this repo)
+- [Node.js](https://nodejs.org/) (version 12.17.0 is recommended for this repo)
+- [NPM](https://www.npmjs.com/)
 - [NVM](https://github.com/creationix/nvm) (manage multiple versions of Node and NPM)
 
 ## Setup
