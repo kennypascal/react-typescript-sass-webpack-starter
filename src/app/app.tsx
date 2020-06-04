@@ -1,13 +1,15 @@
 import './app.scss';
 import * as React from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { hot } from 'react-hot-loader/root';
 import AboutRoute from './routes/about-route';
 import HomeRoute from './routes/home-route';
 import Navigation from './components/navigation/navigation';
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 const App: React.FunctionComponent = () => {
-  let location = useLocation();
+  const location = useLocation();
+
   return (
     <div className="app">
       <Navigation location={location} />
@@ -24,4 +26,4 @@ const App: React.FunctionComponent = () => {
   );
 }
 
-export default App;
+export default hot(App);
