@@ -1,0 +1,46 @@
+@import "~scss/tools";
+
+.navigation {
+  position: fixed;
+  top: $global-spacing;
+  left: $global-spacing;
+  width: calc(100% - #{$global-spacing * 2});
+  z-index: 1;
+
+  &__content {
+    display: flex;
+    width: 100%;
+
+    .nav-link {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-weight: 700;
+      font-size: em(10, 12);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      position: relative;
+
+      .selected {
+        opacity: 1;
+
+        &,
+        &:hover {
+          color: white;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        transition: opacity $transition-duration, color $transition-duration;
+        padding: 2em;
+        opacity: 0.5;
+        color: white;
+        display: block;
+
+        &:hover {
+          color: steelblue;
+        }
+      }
+    }
+  }
+}

@@ -47,7 +47,7 @@ To add a report analyzing the javascript bundle run:
 $ npm run build:analyze
 ```
 
-This will create a build folder with html, javascript and css files along with an assets folder.
+This will create a build folder with html, javascript, css and assets.
 
 # License
 

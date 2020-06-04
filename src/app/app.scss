@@ -1,119 +1,57 @@
-@import '~scss/tools';
+@import "~scss/tools";
 @import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
 
+$route-duration: $transition-duration;
+
 body {
-  
   #root {
+    position: relative;
+    display: block;
+    width: 100%;
     height: 100%;
+
+    .app {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: #0c2648;
+      color: white;
+      text-align: center;
+
+      h1 {
+        display: inline-block;
+        font-family: "Abril Fatface", cursive;
+      }
+    }
+  }
+}
+
+.route-transition {
+  &-enter {
+    opacity: 0;
+  }
+
+  &-enter-active {
+    opacity: 1;
+
+    transition: opacity $route-duration, transform $route-duration;
+    transition-delay: $route-duration;
+  }
+
+  &-exit {
+    opacity: 1;
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transition: opacity $route-duration, transform $route-duration;
   }
 }
 
 .app {
-  background: #0c2648;
-  height: 100%;
-  opacity: 0;
+ 
+  // opacity: 0;
   transition: opacity;
   transition-duration: $transition-duration * 5;
   transition-timing-function: ease(ease-in-out-quad);
-  // border: white 20px solid;
-
-  &.is-ready {
-    opacity: 1;
-  }
-
-  &__bkgd {
-    position: fixed;
-    width: calc(100% - 0px);
-    height: calc(100% - 0px);
-    object-fit: cover;
-    opacity: 0.75;
-  }
-
-  &__content {
-    @include align-center;
-
-    color: white;
-    text-align: center;
-
-    h1 {
-      @include small {
-        font-size: 10.5vw;
-      }
-
-      font-size: 5vw;
-      display: inline-block;
-      font-family: 'Abril Fatface', cursive;
-    }
-
-    p {
-      @include small {
-        font-size: em(14);
-      }
-
-      margin: 10px;
-      font-size: em(20);
-      line-height: 1.5em;
-    }
-
-    .divider {
-      display: block;
-      padding: $global-spacing/2 0;
-
-      hr {
-        border: none;
-        border-bottom: thin solid white;
-        width: 5%;
-      }
-    }
-
-    .tools {
-      display: flex;
-      align-items: center;
-      margin: 10px;
-
-      @include small {
-        display: block;
-
-        .tool {
-          margin: 0 auto $global-spacing;
-        }
-      }
-
-      .tool {
-        display: block;
-        position: relative;
-        padding: 0 $global-spacing;
-        flex-grow: 1;
-        text-decoration: none;
-        svg {
-          height: 15vw;
-          max-height: 30px;
-          margin: 0;
-        }
-
-        &--typescript {
-          svg {
-            max-height: 25px;
-          }
-        }
-
-        &--react {
-          font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
-          color: rgb(97, 218, 251);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          .type {
-            color: inherit;
-            margin-left: 10px;
-            font-weight: 700;
-            font-size: 20px;
-            line-height: 20px;
-            display: inline;
-          }
-        }
-      }
-    }
-  }
 }
