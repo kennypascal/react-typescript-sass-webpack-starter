@@ -1,4 +1,4 @@
-@import "~scss/tools";
+@import '~scss/tools';
 
 .home {
   background: #0c2648;
@@ -10,19 +10,26 @@
       font-size: 14.5vw;
     }
 
+    animation-delay: $transition-duration;
     font-size: 10vw;
     display: inline-block;
-    font-family: "Abril Fatface", cursive;
+    font-family: 'Abril Fatface', cursive;
   }
 
   &__bkgd {
     position: fixed;
     width: calc(100% - 0px);
     height: calc(100% - 0px);
-    object-fit: cover;
     opacity: 0.75;
     top: 0;
     left: 0;
+    
+    img {
+      width: calc(100% - 0px);
+      height: calc(100% - 0px);
+      object-fit: cover;
+      animation-delay: $transition-duration * 2;
+    }
   }
 
   &__content {

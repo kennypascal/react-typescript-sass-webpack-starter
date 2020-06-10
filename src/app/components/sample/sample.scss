@@ -1,17 +1,20 @@
 @import '~scss/tools';
 
-.about {
+.sample {
   width: 100%;
   height: 100%;
-  
+  display: block;
+  position: relative;
+  background-color: white;
+
   &__content {
     @include align-center;
-
-    margin: 0 auto;
+    
     display: block;
     width: 80%;
-    max-width: 560px;
-    color: white;
+    max-width: 640px;
+    color: #0c2648;
+    background-color: white;
 
     h1 {
       font-size: em(24);
@@ -25,11 +28,12 @@
       margin: $global-spacing $global-spacing $global-spacing * 2;
       font-size: em(20);
       line-height: 1.5em;
+      text-align: left;
     }
 
     .divider {
       display: block;
-      padding: 0 0 $global-spacing/2 0;
+      padding: $global-spacing/2 0;
 
       hr {
         border: none;
@@ -57,11 +61,6 @@
         padding: 0 $global-spacing;
         flex-grow: 1;
         text-decoration: none;
-        transition: transform $transition-duration;
-
-        &:hover {
-          transform: scale(1.1);
-        }
 
         svg {
           height: 15vw;

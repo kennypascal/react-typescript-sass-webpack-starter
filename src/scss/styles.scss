@@ -4,6 +4,12 @@
 // reset
 @include reset;
 
+// default animation
+$use-fadeIn: true;
+$use-fadeInUp: true;
+@import '~node_modules/animate-sass/animate';
+
+// base
 html,
 body {
   margin: 0;

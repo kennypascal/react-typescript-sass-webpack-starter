@@ -16,6 +16,9 @@ const Navigation: React.FunctionComponent<INavigationProps> = (props) => {
         <li className="nav-link" >
           <NavLink exact to="/about" activeClassName="selected">About</NavLink>
         </li>
+        <li className="nav-link" >
+          <NavLink exact to="/sample" activeClassName="selected">Sample</NavLink>
+        </li>
       </ul>
     </div>
   );
