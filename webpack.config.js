@@ -50,7 +50,11 @@ module.exports = {
         exclude: [path.resolve(__dirname, './node_modules')]
       },
       // .ejs
-      { test: /\.ejs$/, loader: 'ejs-loader' },
+      { test: /\.ejs$/, loader: 'ejs-loader',
+        options: {
+          esModule: false
+        }
+      },
       // scss
       {
         test: /\.(sa|sc|c)ss$/,
