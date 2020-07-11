@@ -1,16 +1,13 @@
-
 const webpack = require('webpack');
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 
 const { getAssetFilename, getTitle } = require('./tools/utilities');
 
 const isProduction = process.argv.indexOf('-p') >= 0;
 const sourcePath = path.join(__dirname, './src');
-const inlineSource = process.argv.indexOf('--env.inline-source') >= 0;
 
 const appEntryPoint = './index.tsx';
 const devServerEntryPoint = ['webpack/hot/only-dev-server', 'react-hot-loader/patch', appEntryPoint];
@@ -34,6 +31,12 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        enforce: 'pre',
+        test: /\.(ts|js)x?$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      },
       // typescript
       // ts-loader: convert typescript (es6) to javascript (es6),
       // babel-loader: converts javascript (es6) to javascript (es5)
@@ -50,7 +53,9 @@ module.exports = {
         exclude: [path.resolve(__dirname, './node_modules')]
       },
       // .ejs
-      { test: /\.ejs$/, loader: 'ejs-loader',
+      {
+        test: /\.ejs$/,
+        loader: 'ejs-loader',
         options: {
           esModule: false
         }
@@ -99,9 +104,7 @@ module.exports = {
         if (sourceType === 'style') {
           extension = 'css';
         }
-        return htmlWebpackPlugin.options.inlineSource && extension
-          ? htmlWebpackPlugin.files[extension].map(file => `<${sourceType}>${compilation.assets[file.substr(1)].source()}</${sourceType}>`)
-          : '';
+        return htmlWebpackPlugin.options.inlineSource && extension ? htmlWebpackPlugin.files[extension].map((file) => `<${sourceType}>${compilation.assets[file.substr(1)].source()}</${sourceType}>`) : '';
       }
     }),
 

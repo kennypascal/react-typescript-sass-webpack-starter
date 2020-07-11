@@ -5,10 +5,13 @@
  *
  * @class LoadImageCallback
  */
+
+type CallBackFunction = (...args) => void;
+
 class LoadImageCallback {
   private log: boolean;
 
-  private callbackList: Function[] = [];
+  private callbackList: CallBackFunction[] = [];
 
   public constructor() {
     this.log = false;
@@ -22,13 +25,13 @@ class LoadImageCallback {
 
   private logStatus(event): void {
     if (this.log) {
-      console.warn(`loadImage: ${event.type}\n`, event.target as HTMLImageElement, `\n callbacks`, this.callbackList);
+      console.log(`loadImage: ${event.type}\n`, event.target as HTMLImageElement, '\n callbacks', this.callbackList);
     }
   }
 
   // callbacks
 
-  public addCallback(callback: Function): void {
+  public addCallback(callback: CallBackFunction): void {
     if (callback) {
       this.callbackList.push(callback);
     }
@@ -36,11 +39,9 @@ class LoadImageCallback {
 
   private executeCallback(): void {
     if (this.callbackList) {
-      this.callbackList.forEach(
-        (callBack): void => {
-          callBack();
-        },
-      );
+      this.callbackList.forEach((callBack: CallBackFunction): void => {
+        callBack();
+      });
     }
   }
 
@@ -59,6 +60,12 @@ class LoadImageCallback {
 
 export const loadImageCallback = new LoadImageCallback();
 
+interface ILoadImage {
+  src: string;
+  callback: CallBackFunction;
+  attributes: HTMLImageElement;
+}
+
 /**
  * Loads and returns an image object.
  * LoadImageCallback will execute any defined callbacks when the image is complete.
@@ -66,30 +73,28 @@ export const loadImageCallback = new LoadImageCallback();
  * @param {*} props
  * @returns {HTMLImageElement}
  */
-function loadImage({ src, callback = undefined, attributes = undefined }): HTMLImageElement {
+
+export default function loadImage({ src, callback = undefined, attributes = undefined }: ILoadImage): HTMLImageElement {
   const image = new Image();
+
   image.classList.add('loading');
 
   if (attributes) {
     // add attributes
-    Object.keys(attributes).map(
-      (key): string => {
-        if (key !== 'src' && key !== 'callback') {
-          image.setAttribute(key, attributes[key]);
-        }
-        return key;
-      },
-    );
+    Object.keys(attributes).map((key): string => {
+      if (key !== 'src' && key !== 'callback') {
+        image.setAttribute(key, attributes[key]);
+      }
+      return key;
+    });
     // add styles
     if (attributes.style) {
-      Object.keys(attributes.style).map(
-        (key): string => {
-          if (key !== 'src' && key !== 'callback') {
-            image.style[key] = attributes.style[key];
-          }
-          return key;
-        },
-      );
+      Object.keys(attributes.style).map((key): string => {
+        if (key !== 'src' && key !== 'callback') {
+          image.style[key] = attributes.style[key];
+        }
+        return key;
+      });
     }
   }
 
@@ -120,5 +125,3 @@ function loadImage({ src, callback = undefined, attributes = undefined }): HTMLI
 
   return image;
 }
-
-export default loadImage;

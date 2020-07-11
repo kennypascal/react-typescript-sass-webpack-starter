@@ -1,6 +1,7 @@
 const { DEFAULT_PACKAGE_NAME, DEFAULT_PACKAGE_TITLE } = require('./constants/default');
 
 const replace = require('replace');
+
 const chalk = require('chalk');
 const chalkPrompt = chalk.white;
 const chalkDelimiter = chalk.grey;

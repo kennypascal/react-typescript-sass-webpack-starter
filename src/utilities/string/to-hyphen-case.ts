@@ -5,7 +5,8 @@
  * @param {string} string
  * @returns {string} Returns a string as hyphen case
  */
-function toHyphenCase(string: string): string {
+
+export default function toHyphenCase(string: string): string {
   return string
     .replace(/[^\w\s]/g, '')
     .replace(/[-_]+/g, ' ')
@@ -13,5 +14,3 @@ function toHyphenCase(string: string): string {
     .replace(/([A-Z])/g, (letter): string => `-${letter.toLowerCase()}`)
     .replace(/ /g, '');
 }
-
-export default toHyphenCase;
