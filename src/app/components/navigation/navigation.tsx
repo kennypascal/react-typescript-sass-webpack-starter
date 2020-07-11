@@ -2,22 +2,28 @@ import './navigation.scss';
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 
-interface INavigationProps {
-  location;
-}
+const COMPONENT_NAME = 'navigation';
+const COMPONENT_NAV_LINK_NAME = 'nav-link';
+const COMPONENT_NAV_LINK_SELECTED_NAME = 'nav-link--selected';
 
-const Navigation: React.FunctionComponent<INavigationProps> = (props) => {
+const Navigation: React.FunctionComponent = () => {
   return (
-    <div className="navigation">
-      <ul className="navigation__content">
-        <li className="nav-link">
-          <NavLink exact to="/" activeClassName="selected">Home</NavLink>
+    <div className={COMPONENT_NAME}>
+      <ul className={`${COMPONENT_NAME}`}>
+        <li className={COMPONENT_NAV_LINK_NAME}>
+          <NavLink exact to="/" activeClassName={COMPONENT_NAV_LINK_SELECTED_NAME}>
+            Home
+          </NavLink>
         </li>
-        <li className="nav-link" >
-          <NavLink exact to="/about" activeClassName="selected">About</NavLink>
+        <li className={COMPONENT_NAV_LINK_NAME}>
+          <NavLink exact to="/about" activeClassName={COMPONENT_NAV_LINK_SELECTED_NAME}>
+            About
+          </NavLink>
         </li>
-        <li className="nav-link" >
-          <NavLink exact to="/sample" activeClassName="selected">Sample</NavLink>
+        <li className={COMPONENT_NAV_LINK_NAME}>
+          <NavLink exact to="/sample" activeClassName={COMPONENT_NAV_LINK_SELECTED_NAME}>
+            Sample
+          </NavLink>
         </li>
       </ul>
     </div>

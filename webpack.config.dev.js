@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const path = require('path');
 const webpackConfig = require('./webpack.config');
 const port = require('./package.json').config.port ? require('./package.json').config.port : 3000;
@@ -12,7 +12,7 @@ module.exports = merge(webpackConfig, {
   output: {
     pathinfo: true,
     publicPath: '/',
-    filename: '[path]/bundle-[name].js',
+    filename: '[path]/bundle-[name].js'
   },
   plugins: [new webpack.NamedModulesPlugin()],
   devServer: {
@@ -20,12 +20,12 @@ module.exports = merge(webpackConfig, {
     hot: true,
     host: '0.0.0.0',
     port,
-    overlay: true,
+    overlay: true
   },
   node: {
     // workaround for webpack-dev-server issue
     // https://github.com/webpack/webpack-dev-server/issues/60#issuecomment-103411179
     fs: 'empty',
-    net: 'empty',
-  },
+    net: 'empty'
+  }
 });
