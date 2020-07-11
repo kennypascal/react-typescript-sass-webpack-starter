@@ -3,7 +3,7 @@ const path = require('path');
 
 const isProduction = process.argv.indexOf('-p') >= 0;
 const outPath = path.join(__dirname, './build');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 
 const analyze = process.argv.indexOf('--env.analyze') >= 0;
 
@@ -24,34 +24,34 @@ module.exports = merge(webpackConfig, {
         terserOptions: {
           compress: {
             unused: false,
-            drop_console: true,
+            drop_console: true
           },
           ecma: 5,
           warnings: false,
           mangle: true,
           output: {
-            comments: false,
-          },
+            comments: false
+          }
         },
-        sourceMap: true,
-      }),
-    ],
+        sourceMap: true
+      })
+    ]
   },
   stats: {
     modules: false,
     children: false,
-    assetsSort: '!field',
+    assetsSort: '!field'
   },
   output: {
     path: outPath,
     filename: `${isProduction ? `assets/js/${getAssetFilename()}` : ''}[name].js`,
-    publicPath: '/',
+    publicPath: '/'
   },
   plugins: [
     // clean the build directory
     new CleanWebpackPlugin({ verbose: false }),
 
     // analyze bundled javascript
-    new BundleAnalyzerPlugin({ analyzerMode: analyze ? 'static' : 'disabled' }),
-  ],
+    new BundleAnalyzerPlugin({ analyzerMode: analyze ? 'static' : 'disabled' })
+  ]
 });
