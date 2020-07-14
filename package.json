@@ -1,37 +1,40 @@
 {
   "name": "react-typescript-sass-webpack-starter",
-  "title": "React Typescript SASS Webpack Starter",
   "version": "0.1.0",
-  "author": "",
   "private": true,
   "description": "",
-  "main": "",
   "license": "MIT",
-  "config": {
-    "port": "7700"
-  },
+  "author": "",
+  "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "setup": "npm install && npm run message:setup && node tools/setup.js",
-    "start": "npm run message:ip && webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors --config webpack.config.dev.js",
     "build": "webpack -p --progress --colors --config webpack.config.build.js && npm run build:complete --silent",
     "build:analyze": "webpack -p --progress --colors --config webpack.config.build.js --env.analyze && npm run build:complete --silent",
     "build:complete": "npm run prettier:html && npm run message:build-complete && npm run message:build-server",
-    "prettier": "prettier --write \"src/**/*.{ts,tsx,css,scss,js,jsx,json}\"",
-    "prettier:html": "prettier --write \"build/**/*.html\"",
     "lint": "eslint --fix src/**/*.{js,jsx,ts,tsx}",
     "lint:ts": "eslint --fix src/**/*.{ts,tsx}",
-    "message:setup": "node tools/messages/setup.js",
     "message:build-complete": "node tools/messages/build.js",
     "message:build-server": "node tools/server.js",
-    "message:ip": "node tools/messages/ip.js"
+    "message:ip": "node tools/messages/ip.js",
+    "message:setup": "node tools/messages/setup.js",
+    "prettier": "prettier --write \"src/**/*.{ts,tsx,css,scss,js,jsx,json}\"",
+    "prettier:html": "prettier --write \"build/**/*.html\"",
+    "setup": "npm install && npm run message:setup && node tools/setup.js",
+    "start": "npm run message:ip && webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors --config webpack.config.dev.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "config": {
+    "port": "7700"
   },
   "dependencies": {
-    "@types/react": "^16.9.42",
+    "@hot-loader/react-dom": "^16.13.0",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/react-transition-group": "^4.4.0",
     "classnames": "^2.2.6",
     "react": "^16.13.1",
-    "react-hot-loader": "4.12.21",
     "react-dom": "^16.13.1",
+    "react-hot-loader": "4.12.21",
     "react-router-dom": "^5.2.0",
     "react-transition-group": "^4.4.1"
   },
@@ -39,11 +42,7 @@
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
-    "@hot-loader/react-dom": "^16.13.0",
-    "@types/node": "^14.0.22",
-    "@types/react-dom": "^16.9.8",
-    "@types/react-router-dom": "^5.1.5",
-    "@types/react-transition-group": "^4.4.0",
+    "@types/node": "^14.0.23",
     "animate-sass": "^0.8.2",
     "babel-loader": "^8.1.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
@@ -93,5 +92,6 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.0.9"
-  }
+  },
+  "title": "React Typescript SASS Webpack Starter"
 }
