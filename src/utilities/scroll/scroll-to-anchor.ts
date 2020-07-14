@@ -9,18 +9,13 @@ const DURATION = 600;
  * @param [offset] | Offset the scroll to positon
  * @param [duration] | Animation duration
  */
-const scrollToAnchor = (event, offset = 0, duration: number = DURATION): void => {
+const scrollToAnchor = (event: MouseEvent, offset = 0, duration: number = DURATION): void => {
   const element = event.currentTarget as HTMLElement;
-  const isAnchorHref = element &&
-    element.getAttribute('href') &&
-    element.getAttribute('href').substr(0, 1) === '#';
+  const isAnchorHref = element && element.getAttribute('href') && element.getAttribute('href').substr(0, 1) === '#';
 
   /* if anchor # */
   if (isAnchorHref) {
-    const anchorHref = element &&
-    element.getAttribute('href') &&
-    element.getAttribute('href').substr(0, 1) === '#' &&
-    element.getAttribute('href').replace('#', '');
+    const anchorHref = element && element.getAttribute('href') && element.getAttribute('href').substr(0, 1) === '#' && element.getAttribute('href').replace('#', '');
 
     console.log('Scroll to anchor', anchorHref);
 
