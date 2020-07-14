@@ -6,8 +6,6 @@
  * @class LoadImageCallback
  */
 
-type CallBackFunction = (...args) => void;
-
 class LoadImageCallback {
   private log: boolean;
 
