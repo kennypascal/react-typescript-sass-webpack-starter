@@ -6,7 +6,7 @@ import * as ICON_REACT from '../../../assets/svg/icon-react.svg';
 import * as ICON_TYPESCRIPT from '../../../assets/svg/icon-typescript.svg';
 import * as ICON_SASS from '../../../assets/svg/icon-sass.svg';
 
-const COMPONENT_NAME = 'home';
+const COMPONENT_NAME = 'about';
 const COMPONENT_TOOL_NAME = 'tool';
 
 const About: React.FunctionComponent = (): JSX.Element => {
@@ -20,17 +20,17 @@ const About: React.FunctionComponent = (): JSX.Element => {
             <hr />
           </span>
           <div className="tools">
-            <a href="https://webpack.github.io" className={`${COMPONENT_TOOL_NAME} ${COMPONENT_TOOL_NAME}--tool--webpack`}>
+            <a href="https://webpack.github.io" className={`${COMPONENT_TOOL_NAME} ${COMPONENT_TOOL_NAME}--webpack`}>
               <span {...markDownHTML(ICON_WEBPACK.default)} />
             </a>
-            <a href="https://reactjs.org" className={`${COMPONENT_TOOL_NAME} ${COMPONENT_TOOL_NAME}--tool--react`}>
+            <a href="https://reactjs.org" className={`${COMPONENT_TOOL_NAME} ${COMPONENT_TOOL_NAME}--react`}>
               <span className="icon" {...markDownHTML(ICON_REACT.default)} />
               <span className="type">React</span>
             </a>
-            <a href="https://www.typescriptlang.org" className={`${COMPONENT_TOOL_NAME} ${COMPONENT_TOOL_NAME}--tool--typescript`}>
+            <a href="https://www.typescriptlang.org" className={`${COMPONENT_TOOL_NAME} ${COMPONENT_TOOL_NAME}--typescript`}>
               <span {...markDownHTML(ICON_TYPESCRIPT.default)} />
             </a>
-            <a href="https://sass-lang.com" className={`${COMPONENT_TOOL_NAME} ${COMPONENT_TOOL_NAME}--tool--sass`}>
+            <a href="https://sass-lang.com" className={`${COMPONENT_TOOL_NAME} ${COMPONENT_TOOL_NAME}--sass`}>
               <span {...markDownHTML(ICON_SASS.default)} />
             </a>
           </div>
