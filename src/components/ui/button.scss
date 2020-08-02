@@ -1,0 +1,49 @@
+@import '~scss/tools';
+
+.btn {
+  font-family: 'Playfair Display', serif;
+  font-size: em(12);
+  font-weight:400;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+  width: fit-content;
+  padding-bottom: 3px;
+  padding-left: $global-spacing * 2;
+  padding-right: $global-spacing * 2;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  color: white;
+  background-color: transparent;
+  // border: thin solid $blue;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  transition: all $transition-duration;
+  text-decoration: none;
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: transparent;
+      // color: $dark-blue;
+      // background: $green;
+    }
+  }
+
+  &[disabled],
+  &--disabled {
+    cursor: progress;
+    border-color: transparent;
+    // color: $white;
+    // background: $blue;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &--hidden {
+    opacity: 0 !important;
+  }
+}
