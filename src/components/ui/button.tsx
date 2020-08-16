@@ -4,7 +4,7 @@ import * as cx from 'classnames';
 
 interface IButtonProps {
   className?: string;
-  children;
+  children?;
   label?: string;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
