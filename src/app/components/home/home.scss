@@ -10,7 +10,7 @@
       font-size: 14.5vw;
     }
 
-    animation-delay: $transition-duration;
+    animation-delay: $transition-duration-default;
     font-size: 10vw;
     display: inline-block;
     font-family: 'Abril Fatface', cursive;
@@ -28,7 +28,7 @@
       width: calc(100% - 0px);
       height: calc(100% - 0px);
       object-fit: cover;
-      animation-delay: $transition-duration * 2;
+      animation-delay: $transition-duration-default * 2;
     }
   }
 

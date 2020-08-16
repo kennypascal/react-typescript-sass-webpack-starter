@@ -1,4 +1,13 @@
 @import 'easing';
 
-$transition-duration: 200ms;
-$transition-default: all $transition-duration;
+$transition-duration-default: 200ms;
+$transition-default-all: all $transition-duration-default;
+
+/** Required */
+@import 
+"animate-scss/_properties";
+
+/** Animations */
+@import 
+  "animate-scss/_fading-entrances/fading-entrances.scss",
+  "animate-scss/_fading-exits/fading-exits.scss"

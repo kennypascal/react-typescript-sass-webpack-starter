@@ -57,7 +57,7 @@
         padding: 0 $global-spacing;
         flex-grow: 1;
         text-decoration: none;
-        transition: transform $transition-duration;
+        transition: transform $transition-duration-default;
 
         &:hover {
           transform: scale(1.1);

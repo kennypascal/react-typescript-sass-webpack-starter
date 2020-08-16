@@ -1,7 +1,7 @@
 @import '~scss/tools';
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
 
-$route-duration: $transition-duration * 2;
+$route-duration: $transition-duration-default * 2;
 
 body {
   #root {

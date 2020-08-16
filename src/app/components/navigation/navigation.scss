@@ -36,7 +36,7 @@
 
       a {
         text-decoration: none;
-        transition: opacity $transition-duration, color $transition-duration;
+        transition: opacity $transition-duration-default, color $transition-duration-default;
         padding: 2em;
         opacity: 0.5;
         color: steelblue;
@@ -48,7 +48,7 @@
           bottom: 15px;
           border-bottom: thin solid steelblue;
           width: 0;
-          transition: width $transition-duration;
+          transition: width $transition-duration-default;
           margin: 0;
           padding: 0;
         }
