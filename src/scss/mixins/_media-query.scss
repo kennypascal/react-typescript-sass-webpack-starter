@@ -11,6 +11,7 @@
 
 $small: 768px; // Start of phablet breakpoint
 $large: 960px; // Start of desktop breakpoint
+$extra-large: 1280px; // Start of desktop breakpoint
 
 // Responsive break points
 $breakpoint-small: max-width ($small - 1); // Mobile
@@ -18,10 +19,27 @@ $breakpoint-medium-only: $small ($large - 1); // Phablet + Portrait
 $breakpoint-medium-down: max-width ($large - 1); // Below Desktop
 $breakpoint-medium-up: min-width $small; // Above Phablet & Portrait
 $breakpoint-large: min-width $large; // Desktop
+$breakpoint-extra-large: min-width $extra-large; // Desktop
 
 @mixin small {
   @include breakpoint($breakpoint-small) {
     @content;
+  }
+}
+
+@mixin small-portrait {
+  @include breakpoint($breakpoint-small) {
+    @media (orientation: portrait) {
+      @content;
+    }
+  }
+}
+
+@mixin small-landscape {
+  @include breakpoint($breakpoint-small) {
+    @media (orientation: landscape) {
+      @content;
+    }
   }
 }
 
@@ -39,6 +57,12 @@ $breakpoint-large: min-width $large; // Desktop
 
 @mixin large {
   @include breakpoint($breakpoint-large) {
+    @content;
+  }
+}
+
+@mixin extra-large {
+  @include breakpoint($breakpoint-extra-large) {
     @content;
   }
 }

@@ -5,7 +5,8 @@
  * @param {string} string
  * @returns {string} Returns a string as camel case
  */
-function toCamelCase(string: string): string {
+
+export default function toCamelCase(string: string): string {
   return string
     .toLowerCase()
     .replace(/[-_]+/g, ' ')
@@ -13,5 +14,3 @@ function toCamelCase(string: string): string {
     .replace(/ (.)/g, ($1): string => $1.toUpperCase())
     .replace(/ /g, '');
 }
-
-export default toCamelCase;
