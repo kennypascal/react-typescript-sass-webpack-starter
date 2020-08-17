@@ -1,6 +1,6 @@
 import "./icon-loading.scss";
 import * as React from "react";
-import markDownHTML from "../../utilities/mark-down-html";
+import markDownHTML from "../../utilities/html/mark-down-html";
 
 const COMPONENT_NAME = "icon-loading";
 const COMPONENT_CONTENT_NAME = `${COMPONENT_NAME}__content`;
