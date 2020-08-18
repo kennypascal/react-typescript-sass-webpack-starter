@@ -1,11 +1,11 @@
-import "./image-loader.scss";
-import React, { useState } from "react";
-import * as cx from "classnames";
-import AspectRatio from "components/aspect-ratio/aspect-ratio";
-import IconError from "../ui/icon-error";
-import IconLoading from "components/ui/icon-loading";
+import './image-loader.scss';
+import React, { useState } from 'react';
+import * as cx from 'classnames';
+import AspectRatio from '../aspect-ratio/aspect-ratio';
+import IconLoading from '../ui/icon/icon-loading';
+import IconError from '../ui/icon/icon-error';
 
-const COMPONENT_NAME = "image-loader";
+const COMPONENT_NAME = 'image-loader';
 
 interface IImageLoaderProps {
   src: string;
@@ -17,22 +17,16 @@ interface IImageLoaderProps {
 
 const ImageLoader: React.FunctionComponent<IImageLoaderProps> = (props) => {
   const { src, alt, className, width, height } = props;
-  const [status, setStatus] = useState("loading");
+  const [status, setStatus] = useState('loading');
   const imgClassName = cx({
     [`${className}`]: className,
     [`${COMPONENT_NAME}`]: true,
-    [`${COMPONENT_NAME}--${status}`]: status,
+    [`${COMPONENT_NAME}--${status}`]: status
   });
 
   const img =
-    status !== "error" ? (
-      <img
-        src={src}
-        alt={alt}
-        className={imgClassName}
-        onLoad={() => setStatus("loaded")}
-        onError={() => setStatus("error")}
-      />
+    status !== 'error' ? (
+      <img src={src} alt={alt} className={imgClassName} onLoad={() => setStatus('loaded')} onError={() => setStatus('error')} />
     ) : (
       <>
         <IconError />
@@ -41,13 +35,13 @@ const ImageLoader: React.FunctionComponent<IImageLoaderProps> = (props) => {
   return width && height ? (
     <AspectRatio width={width} height={height}>
       <>
-        {status === "loading" && <IconLoading />}
+        {status === 'loading' && <IconLoading />}
         {img}
       </>
     </AspectRatio>
   ) : (
     <>
-      {status === "loading" && <IconLoading />}
+      {status === 'loading' && <IconLoading />}
       {img}
     </>
   );

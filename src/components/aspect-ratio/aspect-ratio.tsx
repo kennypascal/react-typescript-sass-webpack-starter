@@ -1,7 +1,7 @@
 import './aspect-ratio.scss';
-import * as React from "react";
+import * as React from 'react';
 
-const COMPONENT_NAME = "aspect-ratio";
+const COMPONENT_NAME = 'aspect-ratio';
 const COMPONENT_CONTENT_NAME = `${COMPONENT_NAME}__content`;
 
 interface IAspectRatioProps {
@@ -10,11 +10,7 @@ interface IAspectRatioProps {
   height: number;
 }
 
-const AspectRatio: React.FunctionComponent<IAspectRatioProps> = ({
-  children,
-  width,
-  height,
-}) => {
+const AspectRatio: React.FunctionComponent<IAspectRatioProps> = ({ children, width, height }) => {
   const style = { paddingTop: `${(height / width) * 100}%` };
   return (
     <div className={COMPONENT_NAME} style={style}>

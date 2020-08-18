@@ -16,19 +16,19 @@ const Button: React.FunctionComponent<IButtonProps> = ({ children, label, type =
     [`${className}`]: true,
     btn: true,
     'btn--disabled': disabled,
-    'btn--hidden': hidden,
+    'btn--hidden': hidden
   });
 
   switch (type) {
     case 'submit':
       return (
-        <button className={btnClassName} type='submit' disabled={disabled}>
+        <button className={btnClassName} type="submit" disabled={disabled}>
           {label || children}
         </button>
       );
     default:
       return (
-        <button className={btnClassName} type='button' disabled={disabled}>
+        <button className={btnClassName} type="button" disabled={disabled}>
           {label || children}
         </button>
       );

@@ -1,7 +1,7 @@
 @import '~scss/tools';
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
 
-$route-duration: $transition-duration-default * 2;
+$route-duration: 400ms;
 
 body {
   #root {
@@ -26,35 +26,26 @@ body {
   }
 }
 
-.transition-group{
-  width: 100%;
-  height: 100%;
-  display: block;
-  position: relative;
+.route-transition {
+  &-enter {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+  }
 
-  .route-transition {
-    &-enter {
-      opacity: 0;
-      visibility: hidden;
-      position: absolute;
-      top: 0;
-      transition-delay: $route-duration;
-    }
+  &-enter-active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity $route-duration;
+  }
 
-    &-enter-active {
-      opacity: 1;
-      visibility: visible;
-      transition: opacity $route-duration;
-      transition-delay: $route-duration;
-    }
+  &-exit {
+    opacity: 1;
+  }
 
-    &-exit {
-      opacity: 1;
-    }
-
-    &-exit-active {
-      opacity: 0;
-      transition: opacity $route-duration;
-    }
+  &-exit-active {
+    opacity: 0;
+    transition: opacity $route-duration;
   }
 }
