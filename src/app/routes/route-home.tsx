@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Home from '../components/home/home';
 
-const HomeRoute: React.FunctionComponent = () => {
+const RouteHome: React.FunctionComponent = () => {
   return <Home />;
 };
 
-export default HomeRoute;
+export default RouteHome;
