@@ -2,7 +2,7 @@ import './index.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router } from 'react-router-dom';
-import App from './app/app';
+import App from './app-demo/app';
 
 export default function onLoad(): void {
   const container = document.createElement('div');
