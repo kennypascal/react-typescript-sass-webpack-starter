@@ -2,7 +2,6 @@ import './app.scss';
 import * as React from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
-import { hot } from 'react-hot-loader/root';
 import routeConfig from './routes/routes';
 import Navigation from './components/navigation/navigation';
 
@@ -25,4 +24,4 @@ const App: React.FunctionComponent = () => {
   );
 };
 
-export default hot(App);
+export default App;
