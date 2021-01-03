@@ -7,12 +7,12 @@ const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin
 
 const { getAssetFilename, getTitle } = require('./tools/utilities');
 
-const isProduction = process.argv.indexOf('-p') >= 0;
+const isProduction = process.argv.indexOf('webpack.config.build.js') >= 0;
 const sourcePath = path.join(__dirname, './src');
 const inlineSource = process.argv.indexOf('--env.inline-source') >= 0;
 
 const appEntryPoint = './index.tsx';
-const devServerEntryPoint = ['webpack/hot/only-dev-server', 'react-hot-loader/patch', appEntryPoint];
+const devServerEntryPoint = ['webpack/hot/only-dev-server', appEntryPoint];
 
 module.exports = {
   context: sourcePath,
@@ -23,7 +23,6 @@ module.exports = {
   resolve: {
     alias: {
       node_modules: path.resolve(__dirname, './node_modules'),
-      'react-dom': '@hot-loader/react-dom'
     },
     extensions: ['.ts', '.js', '.tsx', 'jsx', 'json'],
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],

@@ -12,7 +12,6 @@ A bare minimum react-typescript-sass-webpack boilerplate for quickly creating in
 - [x] [Webpack](https://webpack.github.io)
 - [x] [Typescript Loader](https://github.com/TypeStrong/ts-loader)
 - [x] [PostCSS Loader](https://github.com/postcss/postcss-loader)
-- [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader)
 - [x] [Mini CSS Extract Plugin](https://github.com/webpack-contrib/mini-css-extract-plugin)
 - [x] [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack-plugin)
 

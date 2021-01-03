@@ -1,11 +1,11 @@
 // variables
 const path = require('path');
 
-const isProduction = process.argv.indexOf('-p') >= 0;
+const isProduction = process.argv.indexOf('webpack.config.build.js') >= 0;
 const outPath = path.join(__dirname, './build');
 const { merge } = require('webpack-merge');
 
-const analyze = process.argv.indexOf('--env.analyze') >= 0;
+const analyze = process.argv.indexOf('--env=analyze') >= 0;
 
 // plugins
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -32,8 +32,7 @@ module.exports = merge(webpackConfig, {
           output: {
             comments: false
           }
-        },
-        sourceMap: true
+        }
       })
     ]
   },
