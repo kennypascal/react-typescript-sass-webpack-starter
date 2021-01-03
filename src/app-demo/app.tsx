@@ -15,7 +15,7 @@ const App: React.FunctionComponent = () => {
         <CSSTransition key={location.pathname} classNames="route-transition" timeout={400}>
           <Switch location={location}>
             {routeConfig.map((route) => (
-              <Route exact path={route.path} component={route.component} />
+              <Route key={location.pathname} exact path={route.path} component={route.component} />
             ))}
           </Switch>
         </CSSTransition>
