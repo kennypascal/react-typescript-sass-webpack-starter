@@ -4,6 +4,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const { getAssetFilename, getTitle } = require('./tools/utilities');
 
@@ -116,6 +117,11 @@ module.exports = {
       template: 'index.ejs',
       filename: 'index.html',
       title: getTitle()
+    }),
+
+    // linting
+    new ESLintPlugin({
+      extensions: ['ts','tsx']
     })
   ]
 };

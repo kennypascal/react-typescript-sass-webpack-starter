@@ -12,6 +12,7 @@ module.exports = {
   extends: ["airbnb-typescript-prettier"],
   rules:
   {
+    "no-console": ["warn", { allow: ["warn"] }],
     "react/jsx-props-no-spreading": [
       1,
       {
