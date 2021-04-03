@@ -1,6 +1,6 @@
 import './image-loader.scss';
 import React, { useState } from 'react';
-import * as cx from 'classnames';
+import cx from 'classnames';
 import AspectRatio from '../aspect-ratio/aspect-ratio';
 import IconLoading from '../ui/icon/icon-loading';
 import IconError from '../ui/icon/icon-error';

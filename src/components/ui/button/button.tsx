@@ -1,6 +1,6 @@
 import './button.scss';
 import * as React from 'react';
-import * as cx from 'classnames';
+import cx from 'classnames';
 
 interface IButtonProps {
   className?: string;
