@@ -8,7 +8,7 @@ const decorators = {
 };
 
 storiesOf('ImageLoader', module)
-  .add('Loaded', () => <ImageLoader src={text('Source', 'img/bkgd-809-6000x4000.jpg')} className="story" />, { ...decorators })
+  .add('Loaded', () => <ImageLoader src={text('Source', 'img/bkgd-809-6000x4000.jpg')} />, { ...decorators })
   .add('Error', () => <ImageLoader src={text('Source', 'img/error/error.jpg')} />, { ...decorators })
   .add('Aspect Ratio Loaded', () => <ImageLoader src={text('Source', 'img/bkgd-809-6000x4000.jpg')} width={number('Width', 6)} height={number('Height', 4)} />, { ...decorators })
   .add('Aspect Ratio Error', () => <ImageLoader src={text('Source', 'img/error.jpg')} width={number('Width', 6)} height={number('Height', 4)} />, { ...decorators });

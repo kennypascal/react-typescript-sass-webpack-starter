@@ -1,7 +1,6 @@
 @import "~scss/tools";
 
 .image-loader {
-  // opacity: 0;
   transition: $transition-default-all;
   width: 100%;
 
@@ -10,7 +9,6 @@
   }
 
   &--loaded {
-    // opacity: 1;
     @include fadeIn();
   }
 }
