@@ -4,6 +4,7 @@ import cx from 'classnames';
 import AspectRatio from '../aspect-ratio/aspect-ratio';
 import IconLoading from '../ui/icon/icon-loading';
 import IconError from '../ui/icon/icon-error';
+import loadImage from '../../utilities/image/load-image';
 
 const COMPONENT_NAME = 'background-image-loader';
 
@@ -24,18 +25,19 @@ const BackgroundImageLoader: React.FunctionComponent<IBackgroundImageLoaderProps
     [`${COMPONENT_NAME}--${status}`]: status
   });
 
-  const image = new Image();
-  image.addEventListener('load', () => {
+  const onLoaded = () => {
     if (status !== 'loaded') {
       setStatus('loaded');
     }
-  });
-  image.addEventListener('error', () => {
+  };
+
+  const onError = () => {
     if (status !== 'error') {
       setStatus('error');
     }
-  });
-  image.src = src;
+  };
+
+  loadImage(src, onLoaded, onError);
 
   const img =
     status !== 'error' ? (
