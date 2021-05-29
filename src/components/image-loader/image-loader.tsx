@@ -1,5 +1,6 @@
 import './image-loader.scss';
 import React, { useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import cx from 'classnames';
 import AspectRatio from '../aspect-ratio/aspect-ratio';
 import IconLoading from '../ui/icon/icon-loading';
@@ -7,7 +8,7 @@ import IconError from '../ui/icon/icon-error';
 
 const COMPONENT_NAME = 'image-loader';
 
-interface IImageLoaderProps {
+export interface IImageLoaderProps {
   src: string;
   alt?: string;
   className?: string;
@@ -15,34 +16,42 @@ interface IImageLoaderProps {
   height?: number;
 }
 
-const ImageLoader: React.FunctionComponent<IImageLoaderProps> = (props) => {
-  const { src, alt, className, width, height } = props;
-  const [status, setStatus] = useState('loading');
-  const imgClassName = cx({
+const getStatusIcon = (status): JSX.Element => {
+  if (status === 'error') {
+    return <IconError />;
+  }
+  if (status === 'loading') {
+    return <IconLoading />;
+  }
+  return null;
+};
+
+const getClassName = (status, className): string => {
+  return cx({
     [`${className}`]: className,
     [`${COMPONENT_NAME}`]: true,
     [`${COMPONENT_NAME}--${status}`]: status
   });
+};
 
-  const img =
-    status !== 'error' ? (
-      <img src={src} alt={alt} className={imgClassName} onLoad={() => setStatus('loaded')} onError={() => setStatus('error')} />
-    ) : (
-      <>
-        <IconError />
-      </>
-    );
+const ImageLoader: React.FunctionComponent<IImageLoaderProps> = (props) => {
+  const { src, alt, className, width, height } = props;
+  const { ref, inView } = useInView({ threshold: 0 });
+  const [status, setStatus] = useState('loading');
+  const statusIconElement = getStatusIcon(status);
+  const imgElement = status !== 'error' ? <img ref={ref} src={src} alt={alt} className={getClassName(status, className)} onLoad={() => setStatus('loaded')} onError={() => setStatus('error')} data-in-view={inView} /> : null;
+
   return width && height ? (
     <AspectRatio width={width} height={height}>
       <>
-        {status === 'loading' && <IconLoading />}
-        {img}
+        {statusIconElement}
+        {imgElement}
       </>
     </AspectRatio>
   ) : (
     <>
-      {status === 'loading' && <IconLoading />}
-      {img}
+      {statusIconElement}
+      {imgElement}
     </>
   );
 };

@@ -3,7 +3,7 @@
  * @param src Path to the image.
  * @param onLoaded Callback function for when the image is loaded.
  * @param onError Callback function for when the image fails to load.
- * @returns an HTMLImageElement
+ * @returns {HTMLImageElement}
  */
 const loadImage = (src: string, onLoaded?: CallBackFunction, onError?: CallBackFunction): HTMLImageElement => {
   const image = new Image();
@@ -16,7 +16,7 @@ const loadImage = (src: string, onLoaded?: CallBackFunction, onError?: CallBackF
     image.addEventListener('error', onError);
   }
 
-  image.src = src;
+  image.setAttribute('src', src);
 
   return image;
 };

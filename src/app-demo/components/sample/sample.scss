@@ -1,4 +1,4 @@
-@import '~scss/tools';
+@import 'scss/tools';
 
 .sample {
   width: 100%;
@@ -33,7 +33,7 @@
 
     .divider {
       display: block;
-      padding: $global-spacing/2 0;
+      padding: ($global-spacing * 0.5) 0;
 
       hr {
         border: none;

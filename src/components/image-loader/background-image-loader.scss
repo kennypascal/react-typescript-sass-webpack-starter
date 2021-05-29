@@ -1,9 +1,4 @@
-@import "~scss/tools";
-
-#root{
-  border: red thin solid;
-  line-height: 0em;
-}
+@import "~scss/tools.scss";
 
 .background-image-loader {
   transition: $transition-default-all;
