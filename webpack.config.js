@@ -59,18 +59,7 @@ module.exports = {
       // scss
       {
         test: /\.(sa|sc|c)ss$/,
-        use: [!isProduction ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader',
-          {
-          loader: 'sass-loader',
-            options: {
-                webpackImporter: false,
-                sassOptions: {
-                includePaths: ['node_modules'],
-              }
-            }
-          }
-        ],
-        include: path.resolve(__dirname, "../")
+        use: [!isProduction ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
       },
       // static assets
       { test: /\.html$/, use: 'html-loader' },

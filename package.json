@@ -8,8 +8,7 @@
   "main": "",
   "license": "MIT",
   "config": {
-    "port": "7700",
-    "port-storybook": "7800"
+    "port": "7700"
   },
   "scripts": {
     "test": "jest",
@@ -23,20 +22,13 @@
     "lint": "eslint --fix src/**/*.{js,jsx,ts,tsx}",
     "lint:js": "eslint --fix src/**/*.{js,jsx}",
     "lint:ts": "eslint --fix src/**/*.{ts,tsx}",
-    "storybook": "start-storybook -p 6006",
-    "storybook:build": "build-storybook -s assets",
     "message:setup": "node tools/messages/setup.js",
     "message:build-complete": "node tools/messages/build.js",
     "message:build-server": "node tools/server.js",
-    "message:ip": "node tools/messages/ip.js",
-    "build-storybook": "build-storybook"
+    "message:ip": "node tools/messages/ip.js"
   },
   "dependencies": {
-    "@storybook/addon-knobs": "^6.2.9",
-    "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/react": "^6.2.9",
     "@types/react": "^17.0.6",
-    "@types/storybook__react": "^5.2.1",
     "animate-scss": "^3.2.1",
     "classnames": "^2.3.1",
     "react": "^17.0.2",
@@ -50,10 +42,6 @@
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-typescript": "^7.13.0",
-    "@storybook/addon-actions": "^6.2.9",
-    "@storybook/addon-essentials": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/builder-webpack5": "next",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.6.0",
     "@types/react-transition-group": "^4.4.1",
