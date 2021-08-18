@@ -8,11 +8,12 @@ import * as ICON_SASS from '../../../assets/svg/icon-sass.svg';
 
 const COMPONENT_NAME = 'about';
 const COMPONENT_TOOL_NAME = 'tool';
+const COMPONENT_CONTENT_NAME = `${COMPONENT_NAME}__content`;
 
 const About: React.FunctionComponent = (): JSX.Element => {
   return (
     <div className={COMPONENT_NAME}>
-      <div className={`${COMPONENT_NAME}__content`}>
+      <div className={COMPONENT_CONTENT_NAME}>
         <div className="fadeInUp animated">
           <h1>About</h1>
           <p>A bare minimum react-webpack-typescript boilerplate for quickly creating interactive applications.</p>

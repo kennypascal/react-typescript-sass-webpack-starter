@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import loadImage from './load-image';
 
 const IMG_SRC = 'image.jpg';

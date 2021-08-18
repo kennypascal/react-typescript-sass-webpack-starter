@@ -1,4 +1,4 @@
-@import "~scss/tools.scss";
+@import "scss/tools.scss";
 
 $default-size: 50px;
 
@@ -23,6 +23,8 @@ $default-size: 50px;
 }
 
 .icon-loading {
+  @include fadeIn();
+
   width: 100%;
   height: 100%;
   min-height: $default-size;
@@ -30,7 +32,6 @@ $default-size: 50px;
 
   &__content {
     @include align-center;
-    @include fadeIn();
 
     &,
     svg {

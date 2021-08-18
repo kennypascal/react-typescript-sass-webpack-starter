@@ -2,12 +2,13 @@
 
 .home {
   background: #0c2648;
+  color: white;
   width: 100%;
   height: 100%;
 
   h1 {
     @include small {
-      font-size: 14.5vw;
+      font-size: 10.5vw;
     }
 
     animation-delay: $transition-duration-default;
@@ -17,18 +18,24 @@
   }
 
   &__bkgd {
+    height: 100%;
     position: fixed;
     width: calc(100% - 0px);
     height: calc(100% - 0px);
     opacity: 0.75;
     top: 0;
     left: 0;
+    opacity: 0.75;
     
     img {
       width: calc(100% - 0px);
       height: calc(100% - 0px);
       object-fit: cover;
       animation-delay: $transition-duration-default * 2;
+    }
+
+    .aspect-ratio {
+      height: 100%
     }
   }
 

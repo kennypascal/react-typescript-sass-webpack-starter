@@ -5,7 +5,6 @@
  * @param {string} string
  * @returns {{ dangerouslySetInnerHTML: { __html } }}
  */
-
 export default function markDownHTML(string: string): { dangerouslySetInnerHTML: { __html } } {
   return {
     dangerouslySetInnerHTML: {

@@ -5,7 +5,6 @@
  * @param {*} element
  * @returns {{ x: number; y: number }} Returns the position of the element within the page.
  */
-
 export default function elementPosition(element: Element): { x: number; y: number } {
   return element
     ? {

@@ -3,14 +3,12 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 const { getAssetFilename, getTitle } = require('./tools/utilities');
 
 const isProduction = process.argv.indexOf('webpack.config.build.js') >= 0;
 const sourcePath = path.join(__dirname, './src');
-const inlineSource = process.argv.indexOf('--env.inline-source') >= 0;
 
 const appEntryPoint = './index.tsx';
 const devServerEntryPoint = ['webpack/hot/only-dev-server', appEntryPoint];

@@ -5,7 +5,6 @@ import { HashRouter as Router } from 'react-router-dom';
 import App from './app-demo/app';
 
 export default function onLoad(): void {
-  console.log('App Ready');
   const container = document.createElement('div');
   container.id = 'root';
   document.body.appendChild(container);

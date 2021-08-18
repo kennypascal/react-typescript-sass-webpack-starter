@@ -8,7 +8,6 @@ import elementPosition from './element-position';
  * @param {number} [offset=0.5] A percentage of how much the element needs to be in view to be true (1 = 100% of the element in view = true)
  * @returns {boolean} Returns true if the element is in view
  */
-
 export default function elementIsInView(element: Element, offset = 0.5): boolean {
   let status = false;
   if (element) {

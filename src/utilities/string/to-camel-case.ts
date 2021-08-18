@@ -5,7 +5,6 @@
  * @param {string} string
  * @returns {string} Returns a string as camel case
  */
-
 export default function toCamelCase(string: string): string {
   return string
     .toLowerCase()

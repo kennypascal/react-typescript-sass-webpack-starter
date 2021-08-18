@@ -5,7 +5,6 @@
  * @param {string} string
  * @returns {string} Returns a string as hyphen case
  */
-
 export default function toHyphenCase(string: string): string {
   return string
     .replace(/[^\w\s]/g, '')

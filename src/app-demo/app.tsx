@@ -5,11 +5,13 @@ import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import routeConfig from './routes/routes';
 import Navigation from './components/navigation/navigation';
 
+const COMPONENT_NAME = 'app';
+
 const App: React.FunctionComponent = () => {
   const location = useLocation();
 
   return (
-    <div className="app">
+    <div className={COMPONENT_NAME}>
       <Navigation />
       <SwitchTransition>
         <CSSTransition key={location.pathname} classNames="route-transition" timeout={400}>
