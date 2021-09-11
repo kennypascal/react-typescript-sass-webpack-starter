@@ -3,11 +3,13 @@ const path = require('path');
 
 const isProduction = process.argv.indexOf('webpack.config.build.js') >= 0;
 const outPath = path.join(__dirname, './build');
+const assetPath = path.join(__dirname, './build/assets');
 const { merge } = require('webpack-merge');
 
 const analyze = process.argv.indexOf('--env=analyze') >= 0;
 
 // plugins
+const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -21,6 +23,7 @@ module.exports = merge(webpackConfig, {
   optimization: {
     minimizer: [
       new TerserPlugin({
+        extractComments: false,
         terserOptions: {
           compress: {
             unused: false,
@@ -51,6 +54,13 @@ module.exports = merge(webpackConfig, {
     new CleanWebpackPlugin({ verbose: false }),
 
     // analyze bundled javascript
-    new BundleAnalyzerPlugin({ analyzerMode: analyze ? 'static' : 'disabled' })
+    new BundleAnalyzerPlugin({ analyzerMode: analyze ? 'static' : 'disabled' }),
+
+    // copy assets to build folder
+    new CopyPlugin({
+      patterns: [
+        { from: 'assets', to: assetPath },
+      ],
+    }),
   ]
 });
