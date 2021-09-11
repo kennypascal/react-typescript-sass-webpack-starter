@@ -15,10 +15,17 @@ module.exports = merge(webpackConfig, {
     filename: '[path]/bundle-[name].js'
   },
   devServer: {
-    contentBase: sourcePath,
     hot: true,
     host: '0.0.0.0',
     port,
-    overlay: true
+    client: {
+      logging: 'info',
+      progress: true,
+      overlay: true
+    },
+    static: {
+      directory: sourcePath,
+      watch: true,
+    },
   }
 });
