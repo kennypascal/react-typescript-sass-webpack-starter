@@ -1,6 +1,6 @@
 import './sample.scss';
 import * as React from 'react';
-import ImageLazyLoader from '../../../components/image-loader/image-lazy-loader';
+import ImageLazyLoader from '../../../components/image/image-lazy-loader';
 
 const COMPONENT_NAME = 'sample';
 const COMPONENT_CONTENT_NAME = `${COMPONENT_NAME}__content`;

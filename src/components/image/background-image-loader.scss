@@ -1,22 +1,24 @@
-@import "scss/tools.scss";
+@import 'scss/tools.scss';
 
-.image-loader {
+.background-image-loader {
   transition: $transition-default-all;
-  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
 
   &--loading {
-    display: none;
+    visibility: hidden;
   }
 
   &--loaded {
     @include fadeIn();
+    width: 100%;
+    height: 100%;
+    animation-delay: $transition-duration-default;
   }
-}
 
-.image-ref {
-  width: 100%;
-  height: 100%;
-  display: block;
+  &--loaded.story {
+    min-height: 100px;
+  }
 }
 
 .aspect-ratio {
@@ -30,12 +32,6 @@
       svg {
         @include align-center;
       }
-    }
-
-    .image-ref {
-      position: absolute;
-      top: 0;
-      left: 0
     }
   }
 }

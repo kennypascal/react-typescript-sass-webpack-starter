@@ -1,4 +1,4 @@
-import './image-loader.scss';
+import './image.scss';
 import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import cx from 'classnames';
@@ -16,12 +16,12 @@ export interface IImageLoaderProps {
   height?: number;
 }
 
-const getStatusIcon = (status): JSX.Element => {
+const getStatusIcon = (status, className = null): JSX.Element => {
   if (status === 'error') {
-    return <IconError />;
+    return <IconError className={className} />;
   }
   if (status === 'loading') {
-    return <IconLoading />;
+    return <IconLoading className={className} />;
   }
   return null;
 };
@@ -38,7 +38,7 @@ const ImageLoader: React.FunctionComponent<IImageLoaderProps> = (props) => {
   const { src, alt, className, width, height } = props;
   const { ref, inView } = useInView({ threshold: 0 });
   const [status, setStatus] = useState('loading');
-  const statusIconElement = getStatusIcon(status);
+  const statusIconElement = getStatusIcon(status, className);
   const imgElement = status !== 'error' ? <img ref={ref} src={src} alt={alt} className={getClassName(status, className)} onLoad={() => setStatus('loaded')} onError={() => setStatus('error')} data-in-view={inView} /> : null;
 
   return width && height ? (

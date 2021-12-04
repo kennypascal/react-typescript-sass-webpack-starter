@@ -1,7 +1,6 @@
 import './home.scss';
 import * as React from 'react';
-// import ImageLoader from '../../../components/image-loader/image-loader';
-import BackgroundImageLoader from '../../../components/image-loader/background-image-loader';
+import BackgroundImageLoader from '../../../components/image/background-image-loader';
 
 const COMPONENT_NAME = 'home';
 const COMPONENT_BKGB_NAME = `${COMPONENT_NAME}__bkgd`;

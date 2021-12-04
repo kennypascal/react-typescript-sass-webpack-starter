@@ -1,4 +1,4 @@
-@import "scss/tools.scss";
+@import 'scss/tools.scss';
 
 $default-size: 50px;
 
@@ -15,7 +15,7 @@ $default-size: 50px;
 
     width: $default-size;
     height: $default-size;
-    
+
     svg {
       padding: 5px;
       box-sizing: border-box;
